@@ -1,0 +1,12 @@
+{
+  "voz": {
+    "provedor": "edge",
+    "nome": "pt-BR-FranciscaNeural",
+    "_leia": "provedor: 'edge' (grátis, sem conta: pip install edge-tts) ou 'google' (Google Cloud TTS; nome ex.: pt-BR-Chirp3-HD-Leda; projeto em GOOGLE_CLOUD_PROJECT ou em voz.projeto; credencial via gcloud ADC ou GOOGLE_APPLICATION_CREDENTIALS — nunca neste arquivo)."
+  },
+  "atraso_fala_ms": 300,
+  "falas": {
+    "demo": "Agendar ficou fácil. Escolha o serviço, o dia e o horário, e confirme com um toque. O lembrete chega na hora certa. Agendinha: baixe grátis."
+  },
+  "acelerar": {}
+}

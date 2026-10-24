@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo — Agendinha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800;900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.33.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="../motor/base.css">
+<link rel="stylesheet" href="../marca.css">
+<script src="../marca.js"></script>
+</head>
+<body>
+<!--
+  Cena de exemplo: "Agendinha", app FICTÍCIO de agendamento de salão.
+  Roteiro: escolhe o serviço → dia e horário → digita o nome → confirma →
+  agenda + lembrete → fecho. Troque as telas pelas do seu produto.
+  Locução: reels.json > falas > demo. Tempos das falas: rode pausas.py demo.
+-->
+<div class="palco">
+    <div class="celular"></div>
+</div>
+
+<template id="t-celular">
+    <!-- Tela 1: serviços -->
+    <div class="tela" id="tela-servicos">
+        <div class="status-bar"><span>09:41</span><span><i class="ti ti-wifi"></i> <i class="ti ti-battery-3"></i></span></div>
+        <div class="ui-topo"><i class="ti ti-menu-2"></i>Agendinha</div>
+        <div class="ui-conteudo">
+            <h1 class="ui-titulo"><i class="ti ti-scissors"></i>Novo horário</h1>
+            <p class="ui-ajuda">Escolha o serviço.</p>
+            <div class="ui-cartao">
+                <div class="ui-linha" id="servico-corte"><span class="ui-miniatura"><i class="ti ti-scissors"></i></span><div class="ui-info"><strong>Corte</strong><span>40 min · R$ 60,00</span></div><i class="ti ti-chevron-right"></i></div>
+                <div class="ui-linha"><span class="ui-miniatura"><i class="ti ti-brush"></i></span><div class="ui-info"><strong>Escova</strong><span>30 min · R$ 45,00</span></div><i class="ti ti-chevron-right"></i></div>
+                <div class="ui-linha"><span class="ui-miniatura"><i class="ti ti-palette"></i></span><div class="ui-info"><strong>Coloração</strong><span>1h30 · R$ 150,00</span></div><i class="ti ti-chevron-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tela 2: dia, horário e nome -->
+    <div class="tela tela--fora-direita" id="tela-horario">
+        <div class="status-bar"><span>09:41</span><span><i class="ti ti-wifi"></i> <i class="ti ti-battery-3"></i></span></div>
+        <div class="ui-topo"><i class="ti ti-arrow-left"></i>Corte · 40 min</div>
+        <div class="ui-conteudo">
+            <div class="ui-cartao">
+                <span class="ui-rotulo">Dia</span>
+                <div class="ui-opcoes"><span class="ui-opcao">Qui 13</span><span class="ui-opcao" id="dia-sex">Sex 14</span><span class="ui-opcao">Sáb 15</span></div>
+                <span class="ui-rotulo">Horário</span>
+                <div class="ui-opcoes"><span class="ui-opcao">10:00</span><span class="ui-opcao">14:00</span><span class="ui-opcao" id="hora-1530">15:30</span><span class="ui-opcao">17:00</span></div>
+                <span class="ui-rotulo">Seu nome</span>
+                <div class="ui-campo" id="campo-nome"><span class="placeholder">Como te chamamos?</span></div>
+                <span class="ui-botao ui-botao--primario ui-botao--largo" id="botao-confirmar"><i class="ti ti-check"></i>Confirmar horário</span>
+            </div>
+            <div id="bloco-confirmado"></div>
+        </div>
+    </div>
+
+    <!-- Tela 3: agenda -->
+    <div class="tela tela--fora-direita" id="tela-agenda">
+        <div class="status-bar"><span>09:42</span><span><i class="ti ti-wifi"></i> <i class="ti ti-battery-3"></i></span></div>
+        <div class="ui-topo"><i class="ti ti-menu-2"></i>Meus horários</div>
+        <div class="ui-conteudo">
+            <div class="ui-cartao">
+                <div class="ui-linha ui-linha--destaque"><span class="ui-miniatura"><i class="ti ti-scissors"></i></span><div class="ui-info"><strong>Corte</strong><span>Sex 14 · 15:30</span></div><span class="ui-tag ui-tag--ok">Confirmado</span></div>
+                <div class="ui-linha"><span class="ui-miniatura"><i class="ti ti-brush"></i></span><div class="ui-info"><strong>Escova</strong><span>Sáb 29 · 10:00</span></div><span class="ui-tag">Concluído</span></div>
+            </div>
+        </div>
+        <div class="notificacao" id="lembrete"><i class="ti ti-bell-ringing"></i><div><b>Lembrete: Corte amanhã</b><small>Sex 14 às 15:30 · Agendinha</small></div></div>
+    </div>
+</template>
+
+<script src="../motor/motor.js"></script>
+<script>
+(function () {
+    function el(id) { return document.getElementById(id); }
+
+    Motor.cena({
+        duracao: 11500,
+        // Legenda da fala, no tempo do VÍDEO (a voz entra atraso_fala_ms depois do início).
+        // Rode `python <skill>/ferramentas/pausas.py demo` depois de gerar a locução e cole a sugestão aqui.
+        falas: [[390, 'Agendar ficou fácil.'], [1930, 'Escolha o serviço,'], [4270, 'o dia e o horário,'], [5770, 'e confirme com um toque.'],
+                [7930, 'O lembrete chega na hora certa.'], [8710, ''], [10020, '']],
+        montar: function (palco) {
+            palco.querySelector('.celular').innerHTML = el('t-celular').innerHTML;
+            palco.querySelector('.titulo__texto').textContent = 'Agendar ficou fácil';
+        },
+        roteiro: function (m) {
+            // 0–1,8 s: escolhe o serviço
+            m.em(500, function () { m.moverDedo('#servico-corte'); });
+            m.em(1100, function () { m.tocar('#servico-corte'); });
+            m.em(1500, function () { m.trocarTela('#tela-servicos', '#tela-horario'); m.titulo('Escolha o horário'); });
+
+            // 1,8–6,5 s: dia, horário, nome e confirmação
+            m.em(2200, function () { m.moverDedo('#dia-sex'); });
+            m.em(2650, function () { m.tocar('#dia-sex', function (e) { e.classList.add('ui-opcao--marcada'); }); });
+            m.em(3100, function () { m.moverDedo('#hora-1530'); });
+            m.em(3550, function () { m.tocar('#hora-1530', function (e) { e.classList.add('ui-opcao--marcada'); }); });
+            m.em(4000, function () { m.moverDedo('#campo-nome'); });
+            m.em(4350, function () { m.tocar('#campo-nome'); m.digitar('#campo-nome', 'Ana Souza', 700); });
+            m.em(5250, function () { el('campo-nome').classList.remove('ui-campo--foco'); el('campo-nome').textContent = 'Ana Souza'; m.moverDedo('#botao-confirmar'); });
+            m.em(5700, function () {
+                m.tocar('#botao-confirmar', function (b) {
+                    b.className = 'ui-botao ui-botao--ok ui-botao--largo';
+                    b.innerHTML = '<i class="ti ti-circle-check"></i>Confirmado';
+                    el('bloco-confirmado').innerHTML = '<div class="ui-alerta surgir"><i class="ti ti-circle-check"></i>Horário reservado!</div>';
+                });
+            });
+
+            // 6,5–8,7 s: agenda e lembrete
+            m.em(6600, function () { m.esconderDedo(); m.trocarTela('#tela-horario', '#tela-agenda'); m.titulo('Lembrete automático'); });
+            m.em(7300, function () { el('lembrete').classList.add('notificacao--visivel'); });
+
+            // 8,7–11,5 s: fecho, junto com "Agendinha: baixe grátis" na fala
+            m.em(8700, function () { m.fecho(); });
+        }
+    });
+})();
+</script>
+</body>
+</html>

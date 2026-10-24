@@ -1,0 +1,8 @@
+/* Cores e fontes da marca — sobrescrevem as variáveis de motor/base.css. */
+:root {
+    --primaria: #4f46e5;
+    --primaria-escura: #3730a3;
+    --primaria-clara: #eef2ff;
+    --secundaria: #ec4899;
+    --fundo-palco: #f8f7fb;
+}
