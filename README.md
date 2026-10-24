@@ -19,7 +19,7 @@ into a 1080×1920 MP4 for Reels/TikTok/Shorts/ads. Docs in Portuguese.*
 ## Instalar
 
 ```bash
-git clone https://github.com/brunogodoispfc/reels-html ~/.claude/skills/reels-html
+git clone https://github.com/brugodoi/reels-html ~/.claude/skills/reels-html
 python -m pip install -r ~/.claude/skills/reels-html/requirements.txt
 npm --prefix ~/.claude/skills/reels-html/ferramentas install
 ```
