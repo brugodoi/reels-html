@@ -35,6 +35,31 @@ cliente agenda um horário no meu app"*. A skill guia o roteiro (você aprova),
 monta a cena, gera a voz, sincroniza a legenda, grava, monta o MP4 e confere
 os quadros antes de te entregar.
 
+### Como a skill conhece o seu app
+
+O vídeo imita as telas do seu produto e a locução fala do que ele realmente
+faz. Antes de escrever o roteiro, a skill precisa **ver o app funcionando**.
+Mande junto com o pedido pelo menos uma destas fontes (da melhor pra pior):
+
+| Fonte | Como mandar | O que a skill tira dali |
+|---|---|---|
+| **Prints ou gravação de tela** | arraste as imagens pro chat ou indique a pasta | telas, rótulos, botões, cores, ordem do fluxo |
+| **Link do sistema web** | cole a URL; se tiver login, entre antes no seu Chrome | navega pelo fluxo, tira prints e copia os textos exatos |
+| **Código do app** | rode o Claude Code na pasta do projeto ou indique o caminho | nomes de telas, botões e textos da interface |
+| **Só a descrição** | responda às perguntas da skill | fluxo e textos que você informar |
+
+Com isso a skill monta uma **ficha do produto** (fluxo, telas, textos, cor,
+benefício principal, o que o app *não* faz) e te mostra junto com o roteiro.
+Você corrige o que estiver errado antes de qualquer gravação. Sem fonte
+nenhuma, ela pergunta em vez de inventar telas ou recursos.
+
+> A skill nunca pede sua senha. Pra sistemas com login, entre você mesmo no
+> navegador e ela usa a sessão aberta, sem enviar formulários nem mudar dados
+> sem o seu ok. Prefira uma conta de teste ou dados de exemplo nos prints.
+
+Exemplo de pedido completo: *"faça um reel de 20 s mostrando como o cliente
+agenda um horário no meu app; os prints estão em `~/Desktop/prints-app`"*.
+
 Na mão, de dentro da pasta do projeto de vídeo:
 
 ```bash

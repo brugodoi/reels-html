@@ -12,6 +12,26 @@ gravada quadro a quadro no Chrome e juntada com a locução. Tudo roda local.
 
 ## Fluxo (siga nesta ordem)
 
+0. **Conhecer o produto antes de escrever qualquer copy.** Roteiro, títulos
+   e locução saem do produto real, nunca de suposição. Use a melhor fonte
+   disponível, nesta ordem:
+   1. **Prints ou gravação de tela** que o usuário mandar: leia as imagens e
+      anote rótulos, botões, ordem das telas, cores e números de exemplo.
+   2. **URL do sistema web**: abra no navegador (Claude in Chrome ou o
+      navegador embutido), percorra o fluxo do vídeo, tire prints e copie os
+      textos exatos da página. Precisa de login → peça pro usuário entrar
+      antes; nunca peça nem digite senha. Não envie formulários nem altere
+      dados reais sem o ok do usuário.
+   3. **Código do app**, se estiver na máquina: leia as telas/rotas e os
+      textos da interface (arquivos de tradução, componentes, botões).
+   4. **Nada disso** → pergunte só o essencial: qual fluxo mostrar, passo a
+      passo; nome exato dos botões e telas; um número real de exemplo; o
+      benefício principal. Peça um print se puder.
+
+   Resuma o que encontrou numa **ficha do produto** (fluxo, telas, textos
+   exatos, cor principal, benefício, o que o produto *não* faz) e mostre ao
+   usuário junto com o roteiro. Não invente tela, botão, recurso ou número;
+   faltou informação → pergunte.
 1. **Roteiro primeiro, aprovado pelo usuário** antes de renderizar qualquer
    coisa: tabela com tempo · tela · o que acontece · título; e o texto da
    locução. Regras do roteiro:
