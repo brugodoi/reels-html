@@ -13,25 +13,33 @@ gravada quadro a quadro no Chrome e juntada com a locução. Tudo roda local.
 ## Fluxo (siga nesta ordem)
 
 0. **Conhecer o produto antes de escrever qualquer copy.** Roteiro, títulos
-   e locução saem do produto real, nunca de suposição. Use a melhor fonte
-   disponível, nesta ordem:
-   1. **Prints ou gravação de tela** que o usuário mandar: leia as imagens e
-      anote rótulos, botões, ordem das telas, cores e números de exemplo.
-   2. **URL do sistema web**: abra no navegador (Claude in Chrome ou o
-      navegador embutido), percorra o fluxo do vídeo, tire prints e copie os
-      textos exatos da página. Precisa de login → peça pro usuário entrar
-      antes; nunca peça nem digite senha. Não envie formulários nem altere
-      dados reais sem o ok do usuário.
-   3. **Código do app**, se estiver na máquina: leia as telas/rotas e os
-      textos da interface (arquivos de tradução, componentes, botões).
-   4. **Nada disso** → pergunte só o essencial: qual fluxo mostrar, passo a
-      passo; nome exato dos botões e telas; um número real de exemplo; o
-      benefício principal. Peça um print se puder.
+   e locução saem do produto real, nunca de suposição.
 
-   Resuma o que encontrou numa **ficha do produto** (fluxo, telas, textos
-   exatos, cor principal, benefício, o que o produto *não* faz) e mostre ao
-   usuário junto com o roteiro. Não invente tela, botão, recurso ou número;
-   faltou informação → pergunte.
+   **a) Primeiro aprenda sozinho, sem pedir nada ao usuário.** Junte tudo o
+   que já dá pra acessar:
+   - o pedido e o que veio na conversa (prints, links, textos anexados);
+   - o **código do app**, se o Claude Code estiver na pasta do projeto ou
+     houver um caminho citado: telas/rotas, componentes, textos da
+     interface (arquivos de tradução, botões), cores do tema;
+   - o **site público** do produto (de `marca.js > site`, do pedido ou de
+     uma busca pelo nome): página inicial, preços, central de ajuda,
+     página na loja de apps — abra no navegador (Claude in Chrome ou o
+     embutido) e tire prints das telas que aparecerem;
+   - vídeos anteriores no projeto (`reels.json`, `cenas/*.html`).
+
+   **b) Mostre a ficha do produto** com o que aprendeu: fluxo, telas, textos
+   exatos, cor principal, benefício, o que o produto *não* faz — e de onde
+   veio cada coisa. Liste à parte **o que falta** pra fazer o vídeo.
+
+   **c) Só então, pras lacunas, sugira as outras fontes** (da melhor pra
+   pior): prints ou gravação de tela do fluxo; acesso ao sistema logado
+   (o usuário entra no navegador e você navega na sessão dele — nunca peça
+   nem digite senha, não envie formulários nem altere dados sem ok); o
+   caminho do código; ou perguntas curtas (passo a passo do fluxo, nome
+   exato dos botões, um número real de exemplo). Aprendeu o suficiente
+   sozinho → siga direto pro roteiro e peça só a confirmação da ficha.
+
+   Não invente tela, botão, recurso ou número; faltou → pergunte.
 1. **Roteiro primeiro, aprovado pelo usuário** antes de renderizar qualquer
    coisa: tabela com tempo · tela · o que acontece · título; e o texto da
    locução. Regras do roteiro:

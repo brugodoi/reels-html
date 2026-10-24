@@ -38,20 +38,28 @@ os quadros antes de te entregar.
 ### Como a skill conhece o seu app
 
 O vídeo imita as telas do seu produto e a locução fala do que ele realmente
-faz. Antes de escrever o roteiro, a skill precisa **ver o app funcionando**.
-Mande junto com o pedido pelo menos uma destas fontes (da melhor pra pior):
+faz. Antes de escrever o roteiro, a skill precisa **ver o app funcionando**,
+e ela faz isso em três etapas:
+
+1. **Aprende sozinha primeiro**, sem te pedir nada: lê o pedido e o que
+   você anexou, o código do app (se o Claude Code estiver aberto na pasta
+   do projeto) e o site público do produto (página inicial, preços, ajuda,
+   loja de apps).
+2. **Te mostra uma ficha do produto** com o que aprendeu (fluxo, telas,
+   textos, cor, benefício principal, o que o app *não* faz e de onde veio
+   cada informação) e o que ainda falta pro vídeo.
+3. **Só então pede o que faltar**, sugerindo a fonte mais útil:
 
 | Fonte | Como mandar | O que a skill tira dali |
 |---|---|---|
 | **Prints ou gravação de tela** | arraste as imagens pro chat ou indique a pasta | telas, rótulos, botões, cores, ordem do fluxo |
-| **Link do sistema web** | cole a URL; se tiver login, entre antes no seu Chrome | navega pelo fluxo, tira prints e copia os textos exatos |
-| **Código do app** | rode o Claude Code na pasta do projeto ou indique o caminho | nomes de telas, botões e textos da interface |
-| **Só a descrição** | responda às perguntas da skill | fluxo e textos que você informar |
+| **Sistema logado** | entre no seu Chrome e avise; ela navega na sua sessão | percorre o fluxo, tira prints e copia os textos exatos |
+| **Código do app** | indique o caminho da pasta | nomes de telas, botões e textos da interface |
+| **Respostas curtas** | responda às perguntas da skill | passo a passo, nome dos botões, um número de exemplo |
 
-Com isso a skill monta uma **ficha do produto** (fluxo, telas, textos, cor,
-benefício principal, o que o app *não* faz) e te mostra junto com o roteiro.
-Você corrige o que estiver errado antes de qualquer gravação. Sem fonte
-nenhuma, ela pergunta em vez de inventar telas ou recursos.
+Se ela já aprendeu o bastante sozinha, vai direto pro roteiro e só pede que
+você confirme a ficha. Você corrige o que estiver errado antes de qualquer
+gravação; na dúvida, ela pergunta em vez de inventar telas ou recursos.
 
 > A skill nunca pede sua senha. Pra sistemas com login, entre você mesmo no
 > navegador e ela usa a sessão aberta, sem enviar formulários nem mudar dados
