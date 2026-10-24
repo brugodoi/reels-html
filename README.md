@@ -65,8 +65,9 @@ gravação; na dúvida, ela pergunta em vez de inventar telas ou recursos.
 > navegador e ela usa a sessão aberta, sem enviar formulários nem mudar dados
 > sem o seu ok. Prefira uma conta de teste ou dados de exemplo nos prints.
 
-Exemplo de pedido completo: *"faça um reel de 20 s mostrando como o cliente
-agenda um horário no meu app; os prints estão em `~/Desktop/prints-app`"*.
+Exemplo de pedido: *"faça um reel de 20 s mostrando como o cliente agenda um
+horário no meu app, o site é `seusite.com.br`"*. Não precisa anexar nada: a
+skill investiga sozinha e só pede prints ou acesso se faltar alguma coisa.
 
 Na mão, de dentro da pasta do projeto de vídeo:
 
