@@ -1,3 +1,5 @@
+<img src="docs/icone.png" width="96" align="right" alt="">
+
 # reels-html
 
 Skill do [Claude Code](https://claude.com/claude-code) que produz **vídeos
