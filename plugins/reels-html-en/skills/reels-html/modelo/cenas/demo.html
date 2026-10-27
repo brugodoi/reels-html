@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo — Salonia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800;900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.33.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="../motor/base.css">
+<link rel="stylesheet" href="../marca.css">
+<script src="../marca.js"></script>
+</head>
+<body>
+<!--
+  Example scene: "Salonia", a FICTIONAL hair salon booking app.
+  Script: pick the service → day and time → type the name → confirm →
+  bookings + reminder → outro. Replace the screens with your product's.
+  Narration: reels.json > falas > demo. Caption timings: run pausas.py demo.
+-->
+<div class="palco">
+    <div class="celular"></div>
+</div>
+
+<template id="t-celular">
+    <!-- Screen 1: services -->
+    <div class="tela" id="tela-servicos">
+        <div class="status-bar"><span>9:41</span><span><i class="ti ti-wifi"></i> <i class="ti ti-battery-3"></i></span></div>
+        <div class="ui-topo"><i class="ti ti-menu-2"></i>Salonia</div>
+        <div class="ui-conteudo">
+            <h1 class="ui-titulo"><i class="ti ti-scissors"></i>New booking</h1>
+            <p class="ui-ajuda">Pick a service.</p>
+            <div class="ui-cartao">
+                <div class="ui-linha" id="servico-corte"><span class="ui-miniatura"><i class="ti ti-scissors"></i></span><div class="ui-info"><strong>Haircut</strong><span>40 min · $35.00</span></div><i class="ti ti-chevron-right"></i></div>
+                <div class="ui-linha"><span class="ui-miniatura"><i class="ti ti-brush"></i></span><div class="ui-info"><strong>Blowout</strong><span>30 min · $28.00</span></div><i class="ti ti-chevron-right"></i></div>
+                <div class="ui-linha"><span class="ui-miniatura"><i class="ti ti-palette"></i></span><div class="ui-info"><strong>Color</strong><span>1h30 · $90.00</span></div><i class="ti ti-chevron-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 2: day, time and name -->
+    <div class="tela tela--fora-direita" id="tela-horario">
+        <div class="status-bar"><span>9:41</span><span><i class="ti ti-wifi"></i> <i class="ti ti-battery-3"></i></span></div>
+        <div class="ui-topo"><i class="ti ti-arrow-left"></i>Haircut · 40 min</div>
+        <div class="ui-conteudo">
+            <div class="ui-cartao">
+                <span class="ui-rotulo">Day</span>
+                <div class="ui-opcoes"><span class="ui-opcao">Thu 13</span><span class="ui-opcao" id="dia-sex">Fri 14</span><span class="ui-opcao">Sat 15</span></div>
+                <span class="ui-rotulo">Time</span>
+                <div class="ui-opcoes"><span class="ui-opcao">10:00</span><span class="ui-opcao">2:00</span><span class="ui-opcao" id="hora-1530">3:30</span><span class="ui-opcao">5:00</span></div>
+                <span class="ui-rotulo">Your name</span>
+                <div class="ui-campo" id="campo-nome"><span class="placeholder">What should we call you?</span></div>
+                <span class="ui-botao ui-botao--primario ui-botao--largo" id="botao-confirmar"><i class="ti ti-check"></i>Confirm booking</span>
+            </div>
+            <div id="bloco-confirmado"></div>
+        </div>
+    </div>
+
+    <!-- Screen 3: bookings -->
+    <div class="tela tela--fora-direita" id="tela-agenda">
+        <div class="status-bar"><span>9:42</span><span><i class="ti ti-wifi"></i> <i class="ti ti-battery-3"></i></span></div>
+        <div class="ui-topo"><i class="ti ti-menu-2"></i>My bookings</div>
+        <div class="ui-conteudo">
+            <div class="ui-cartao">
+                <div class="ui-linha ui-linha--destaque"><span class="ui-miniatura"><i class="ti ti-scissors"></i></span><div class="ui-info"><strong>Haircut</strong><span>Fri 14 · 3:30 PM</span></div><span class="ui-tag ui-tag--ok">Confirmed</span></div>
+                <div class="ui-linha"><span class="ui-miniatura"><i class="ti ti-brush"></i></span><div class="ui-info"><strong>Blowout</strong><span>Sat 29 · 10:00 AM</span></div><span class="ui-tag">Done</span></div>
+            </div>
+        </div>
+        <div class="notificacao" id="lembrete"><i class="ti ti-bell-ringing"></i><div><b>Reminder: Haircut tomorrow</b><small>Fri 14 at 3:30 PM · Salonia</small></div></div>
+    </div>
+</template>
+
+<script src="../motor/motor.js"></script>
+<script>
+(function () {
+    function el(id) { return document.getElementById(id); }
+
+    Motor.cena({
+        duracao: 12500,
+        // Narration captions, in VIDEO time (the voice starts atraso_fala_ms after the beginning).
+        // Run `python <skill>/ferramentas/pausas.py demo` after generating the narration and paste the suggestion here.
+        falas: [[490, 'Booking just got easy.'], [2190, 'Pick the service,'], [3330, 'the day and the time,'], [4710, 'and confirm with one tap.'],
+                [6770, 'The reminder arrives right on time.'], [9000, '']],
+        montar: function (palco) {
+            palco.querySelector('.celular').innerHTML = el('t-celular').innerHTML;
+            palco.querySelector('.titulo__texto').textContent = 'Booking made easy';
+        },
+        roteiro: function (m) {
+            // 0–1.8 s: pick the service
+            m.em(500, function () { m.moverDedo('#servico-corte'); });
+            m.em(1100, function () { m.tocar('#servico-corte'); });
+            m.em(1500, function () { m.trocarTela('#tela-servicos', '#tela-horario'); m.titulo('Pick a time'); });
+
+            // 1.8–6.5 s: day, time, name and confirmation
+            m.em(2200, function () { m.moverDedo('#dia-sex'); });
+            m.em(2650, function () { m.tocar('#dia-sex', function (e) { e.classList.add('ui-opcao--marcada'); }); });
+            m.em(3100, function () { m.moverDedo('#hora-1530'); });
+            m.em(3550, function () { m.tocar('#hora-1530', function (e) { e.classList.add('ui-opcao--marcada'); }); });
+            m.em(4000, function () { m.moverDedo('#campo-nome'); });
+            m.em(4350, function () { m.tocar('#campo-nome'); m.digitar('#campo-nome', 'Anna Smith', 700); });
+            m.em(5250, function () { el('campo-nome').classList.remove('ui-campo--foco'); el('campo-nome').textContent = 'Anna Smith'; m.moverDedo('#botao-confirmar'); });
+            m.em(5700, function () {
+                m.tocar('#botao-confirmar', function (b) {
+                    b.className = 'ui-botao ui-botao--ok ui-botao--largo';
+                    b.innerHTML = '<i class="ti ti-circle-check"></i>Confirmed';
+                    el('bloco-confirmado').innerHTML = '<div class="ui-alerta surgir"><i class="ti ti-circle-check"></i>Booking reserved!</div>';
+                });
+            });
+
+            // 6.5–9 s: bookings and reminder
+            m.em(6600, function () { m.esconderDedo(); m.trocarTela('#tela-horario', '#tela-agenda'); m.titulo('Automatic reminder'); });
+            m.em(7300, function () { el('lembrete').classList.add('notificacao--visivel'); });
+
+            // 9–12.5 s: outro, together with "Salonia: download it free" in the narration
+            m.em(9000, function () { m.fecho(); });
+        }
+    });
+})();
+</script>
+</body>
+</html>

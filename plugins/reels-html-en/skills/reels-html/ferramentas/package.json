@@ -1,0 +1,8 @@
+{
+  "name": "reels-html-ferramentas",
+  "private": true,
+  "description": "Scene recording (gravar.js) with playwright-core + the installed Chrome",
+  "dependencies": {
+    "playwright-core": "1.55.0"
+  }
+}

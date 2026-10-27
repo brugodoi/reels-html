@@ -79,10 +79,11 @@ gravada quadro a quadro no Chrome e juntada com a locução. Tudo roda local.
 Prévia rápida no navegador (sem gravar): abra `cenas/<cena>.html`
 (`?area=1` mostra a área segura; `?t=5000` congela em 5 s).
 
-## Instalação (1ª vez)
+## Instalação (1ª vez e depois de cada atualização do plugin)
 
 - Python 3.10+: `python -m pip install -r <skill>/requirements.txt`
-- Node 18+: `npm --prefix <skill>/ferramentas install` (playwright-core; usa o
+- Node 18+: se `<skill>/ferramentas/node_modules` não existir,
+  `npm --prefix <skill>/ferramentas install` (playwright-core; usa o
   Chrome instalado — `REELS_NAVEGADOR=msedge` pra usar o Edge).
 - Fontes e ícones vêm da internet (Google Fonts, Tabler Icons via jsDelivr).
 

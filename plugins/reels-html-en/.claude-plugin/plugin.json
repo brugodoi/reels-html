@@ -1,0 +1,9 @@
+{
+  "name": "reels-html-en",
+  "version": "1.0.0",
+  "description": "Produces vertical 9:16 videos (Reels, Stories, TikTok, Shorts and ads) showing an app in use, from an HTML scene: animated phone, captions synced with TTS narration and a brand outro, as a 1080×1920 MP4.",
+  "author": { "name": "brugodoi" },
+  "repository": "https://github.com/brugodoi/reels-html",
+  "license": "MIT",
+  "keywords": ["video", "reels", "tiktok", "shorts", "tts", "marketing"]
+}

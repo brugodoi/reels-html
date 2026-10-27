@@ -1,0 +1,16 @@
+{
+  "name": "reels-html",
+  "owner": { "name": "brugodoi" },
+  "plugins": [
+    {
+      "name": "reels-html",
+      "source": "./plugins/reels-html",
+      "description": "Vídeos verticais 9:16 (Reels, TikTok, Shorts, anúncios) de demonstração de app a partir de uma cena HTML, com locução e legenda sincronizada. (Português)"
+    },
+    {
+      "name": "reels-html-en",
+      "source": "./plugins/reels-html-en",
+      "description": "Vertical 9:16 app demo videos (Reels, TikTok, Shorts, ads) from an HTML scene, with TTS narration and synced captions. (English)"
+    }
+  ]
+}

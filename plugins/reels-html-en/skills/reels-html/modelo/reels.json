@@ -1,0 +1,12 @@
+{
+  "voz": {
+    "provedor": "edge",
+    "nome": "en-US-AvaNeural",
+    "_readme": "provedor: 'edge' (free, no account: pip install edge-tts) or 'google' (Google Cloud TTS; nome e.g. en-US-Chirp3-HD-Leda; project in GOOGLE_CLOUD_PROJECT or voz.projeto; credentials via gcloud ADC or GOOGLE_APPLICATION_CREDENTIALS — never in this file)."
+  },
+  "atraso_fala_ms": 300,
+  "falas": {
+    "demo": "Booking just got easy. Pick the service, the day and the time, and confirm with one tap. The reminder arrives right on time. Salonia: download it free."
+  },
+  "acelerar": {}
+}

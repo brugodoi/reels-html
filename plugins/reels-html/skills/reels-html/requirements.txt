@@ -1,0 +1,5 @@
+imageio-ffmpeg
+edge-tts
+# só pro provedor de voz "google":
+google-auth
+requests

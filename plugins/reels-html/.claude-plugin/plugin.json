@@ -1,0 +1,9 @@
+{
+  "name": "reels-html",
+  "version": "1.0.0",
+  "description": "Produz vídeos verticais 9:16 (Reels, Stories, TikTok, Shorts e anúncios) mostrando um app em uso, a partir de uma cena HTML: celular animado, legenda sincronizada com locução e fecho com a marca, em MP4 1080×1920.",
+  "author": { "name": "brugodoi" },
+  "repository": "https://github.com/brugodoi/reels-html",
+  "license": "MIT",
+  "keywords": ["video", "reels", "tiktok", "shorts", "tts", "marketing"]
+}
